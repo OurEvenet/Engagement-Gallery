@@ -186,27 +186,43 @@
   </main>
 
   <!-- ═════════════ LIVE WALL ═════════════ -->
-  <section id="view-wall" class="view view-wall" data-view="wall" hidden>
-    <div class="wall-stage" id="wall-stage"></div>
+  <section id="view-wall" class="view view-wall is-empty" data-view="wall" hidden>
     <div class="petals" id="wall-petals" aria-hidden="true"></div>
-    <div class="wall-empty" id="wall-empty" hidden>
-      <img class="wall-empty-art" src="images/couple.png" alt="" width="460" height="238">
+    <div class="wall-stage" id="wall-stage"></div>
+
+    <!-- Shown before the first photo: full-screen invitation hero -->
+    <div class="wall-hero" id="wall-empty">
+      <img class="wall-hero-art" src="images/couple.png" alt="" width="460" height="238">
       <p class="eyebrow" data-bind="eventTitle"></p>
-      <h1 data-bind="coupleNames"></h1>
-      <p>Scan the code to add the first photo</p>
+      <h1 class="wall-names" data-bind="coupleNames"></h1>
+      <p class="wall-date" data-bind="eventDateLong"></p>
+      <div class="wall-divider" aria-hidden="true">&#9829;</div>
+      <p class="wall-headline">Capture our day!</p>
+      <div class="wall-qr-card big">
+        <div class="wall-qr"></div>
+        <p>Scan to add your photos</p>
+      </div>
+      <p class="wall-sub">Your photos appear here instantly ✨</p>
     </div>
+
+    <!-- Shown alongside the slideshow -->
     <aside class="wall-side">
       <div class="wall-brand">
         <img class="wall-art" src="images/couple.png" alt="" width="460" height="238">
         <p class="eyebrow" data-bind="eventTitle"></p>
-        <h2 data-bind="coupleNames"></h2>
+        <h2 class="wall-names" data-bind="coupleNames"></h2>
+        <p class="wall-date" data-bind="eventDateShortLabel"></p>
+        <div class="wall-divider" aria-hidden="true">&#9829;</div>
       </div>
-      <div class="wall-qr-card">
-        <div id="wall-qr"></div>
-        <p>Scan to add<br>your photos</p>
+      <div class="wall-qr-wrap">
+        <div class="wall-qr-card">
+          <div class="wall-qr"></div>
+          <p>Scan to add<br>your photos</p>
+        </div>
       </div>
       <p class="wall-count"><span class="live-dot"></span> <span id="wall-count">0 photos</span></p>
     </aside>
+
     <div class="wall-controls">
       <a href="#/" class="icon-btn glass" aria-label="Exit live wall"><svg><use href="#i-close"/></svg></a>
       <button class="icon-btn glass" id="btn-fullscreen" aria-label="Full screen"><svg><use href="#i-expand"/></svg></button>

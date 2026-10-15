@@ -1,4 +1,4 @@
-import { $, $$, CFG, dateLong, dateShort, toast, renderQR, appUrl } from "./util.js";
+import { $, $$, CFG, dateLong, dateShort, eventDate, toast, renderQR, appUrl } from "./util.js";
 import { init, state, on, isLive } from "./store.js";
 import * as camera from "./camera.js";
 import * as gallery from "./gallery.js";
@@ -11,6 +11,7 @@ const binds = {
   eventTitle: CFG.eventTitle || "",
   eventDateLong: [dateLong(), CFG.eventTime && `from ${CFG.eventTime}`].filter(Boolean).join(" · "),
   eventDateShort: dateShort(),
+  eventDateShortLabel: [eventDate()?.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }), CFG.eventTime].filter(Boolean).join(" · "),
   welcomeMessage: CFG.welcomeMessage || "",
 };
 for (const el of $$("[data-bind]")) {
@@ -18,7 +19,7 @@ for (const el of $$("[data-bind]")) {
   if (k in binds) { el.textContent = binds[k]; if (!binds[k]) el.hidden = true; }
 }
 // Big home-page names: set the "&" apart so it can be styled in gold
-for (const el of $$("h1.couple")) {
+for (const el of $$("h1.couple, .wall-names")) {
   const parts = binds.coupleNames.split(/\s*&\s*/);
   if (parts.length === 2) {
     const amp = document.createElement("span");

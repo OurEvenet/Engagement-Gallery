@@ -40,7 +40,7 @@ function next() {
   clearTimeout(timer);
   if (!active) return;
   const L = state.sorted.filter((p) => !p.pending);
-  $("#wall-empty").hidden = L.length > 0;
+  $("#view-wall").classList.toggle("is-empty", !L.length);
   setCount(L.length);
   if (!L.length) { $("#wall-stage").replaceChildren(); return; }
   let p, isNew = false;
@@ -88,7 +88,7 @@ export function enter() {
   wire();
   active = true;
   petals($("#wall-petals"), 18);
-  renderQR($("#wall-qr"), appUrl()).catch(() => {});
+  for (const el of document.querySelectorAll(".wall-qr")) if (!el.firstChild) renderQR(el, appUrl()).catch(() => {});
   $(".wall-count .live-dot").classList.toggle("on", state.live);
   pos = -1; showing = null; priority.length = 0;
   next();
