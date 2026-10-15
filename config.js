@@ -16,8 +16,8 @@ window.APP_CONFIG = {
   watermark: true,
 
   // Supabase (free tier) — Project Settings → API
-  supabaseUrl: "",                   // e.g. "https://abcdefgh.supabase.co"
-  supabaseAnonKey: "",               // the "anon" / "publishable" public key — safe to expose
+  supabaseUrl: "https://omdpuisklqmnjskfxvnx.supabase.co",
+  supabaseAnonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9tZHB1aXNrbHFtbmpza2Z4dm54Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIwMTk4MjAsImV4cCI6MjEwNzU5NTgyMH0.MbMP2xL_-YZOBdFICO24aDPGJHbaazRg9Ho4eeGDarY", // public anon key — safe to expose
   bucket: "photos",
 
   // URL guests should open (used for the QR code). Leave empty to use the current page URL.
