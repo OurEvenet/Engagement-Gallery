@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f8f3ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#16120f" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Our live engagement photo album — capture a moment with your camera and it appears for everyone instantly.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta property="og:title" content="Engagement Live Album">
+  <meta property="og:description" content="Snap a photo — it appears in our shared album instantly.">
+  <meta property="og:image" content="icons/icon-512.png">
+  <title>Engagement Live Album</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="config.js"></script>
+</head>
+<body>
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.6l1.2-1.8A1.5 1.5 0 0 1 9.55 3.5h4.9a1.5 1.5 0 0 1 1.25.7L16.9 6h1.6A2.5 2.5 0 0 1 21 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="12.5" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></g></symbol>
+    <symbol id="i-tv" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2.5" y="4.5" width="19" height="12.5" rx="2"/><path d="M8 20.5h8M12 17v3.5"/></g></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="1"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="1"/></g><g fill="currentColor"><rect x="14" y="14" width="2.6" height="2.6"/><rect x="17.9" y="17.9" width="2.6" height="2.6"/><rect x="14" y="17.9" width="2.6" height="2.6"/><rect x="17.9" y="14" width="2.6" height="2.6"/></g></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-flip" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10a8 8 0 0 1 14.3-3.6M20 14a8 8 0 0 1-14.3 3.6"/><path d="M18.5 3v3.6h-3.6M5.5 21v-3.6h3.6"/></g></symbol>
+    <symbol id="i-timer" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 2M9.5 2.5h5"/></g></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3.5M7.5 8L12 3.5 16.5 8"/><path d="M8 11H6.5A1.5 1.5 0 0 0 5 12.5v7A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5v-7a1.5 1.5 0 0 0-1.5-1.5H16"/></g></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4.5h6V7"/></g></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0" stroke-linecap="round"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z M18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" fill="currentColor"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3"/></g></symbol>
+    <symbol id="i-zip" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6 3.5h8.5L19 8v12.5H6z"/><path d="M14 3.5V8h5"/></g><g fill="currentColor"><rect x="9" y="6" width="2" height="1.6"/><rect x="11" y="8" width="2" height="1.6"/><rect x="9" y="10" width="2" height="1.6"/><rect x="11" y="12" width="2" height="1.6"/><rect x="9" y="14.5" width="4" height="3.5" rx=".8"/></g></symbol>
+    <symbol id="i-ring" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="24" cy="29" r="12"/><path d="M18.5 11.5L24 6l5.5 5.5L24 17z" stroke-linejoin="round"/></g></symbol>
+  </svg>
+
+  <div id="demo-banner" class="demo-banner" hidden>
+    <strong>Demo mode</strong> — photos stay on this device. Add your Supabase keys in <code>config.js</code> to go live.
+  </div>
+
+  <!-- ═════════════ HOME ═════════════ -->
+  <main id="view-home" class="view view-home" data-view="home" hidden>
+    <section class="hero">
+      <div class="hero-mark"><svg><use href="#i-ring"/></svg></div>
+      <p class="eyebrow" data-bind="eventTitle"></p>
+      <h1 class="couple" data-bind="coupleNames"></h1>
+      <p class="date" data-bind="eventDateLong"></p>
+      <p class="welcome" data-bind="welcomeMessage"></p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="#/camera">
+          <svg><use href="#i-camera"/></svg> Take a photo
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#/gallery">
+          <svg><use href="#i-grid"/></svg> View the album
+          <span class="count-pill" data-bind="photoCount" hidden></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="latest" aria-label="Latest photos">
+      <div class="section-head">
+        <h2><span class="live-dot" aria-hidden="true"></span> Just captured</h2>
+        <a href="#/gallery" class="link">See all</a>
+      </div>
+      <div class="latest-strip" id="latest-strip"></div>
+      <p class="empty-note" id="latest-empty" hidden>No photos yet — be the first to capture a moment.</p>
+    </section>
+
+    <section class="invite card">
+      <div class="invite-qr" id="home-qr" aria-label="QR code to open this album"></div>
+      <div class="invite-text">
+        <h2>Invite other guests</h2>
+        <p>Have them scan this code with their phone camera to start adding photos.</p>
+        <div class="invite-actions">
+          <button class="btn btn-ghost btn-sm" id="btn-copy-link">Copy link</button>
+          <a class="btn btn-ghost btn-sm" href="#/wall"><svg><use href="#i-tv"/></svg> Live wall</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-foot">
+      <p>Photos are taken with your camera and shared with everyone at this celebration.</p>
+      <button class="btn-text" id="btn-install" hidden>Add to home screen</button>
+    </footer>
+  </main>
+
+  <!-- ═════════════ CAMERA ═════════════ -->
+  <section id="view-camera" class="view view-camera" data-view="camera" hidden>
+    <header class="cam-top">
+      <a href="#/" class="icon-btn glass" aria-label="Close camera"><svg><use href="#i-close"/></svg></a>
+      <button class="chip glass" id="btn-name"><svg><use href="#i-user"/></svg><span id="name-label">Add your name</span></button>
+      <button class="icon-btn glass" id="btn-timer" aria-label="Self-timer: off"><svg><use href="#i-timer"/></svg><span class="badge" id="timer-badge" hidden></span></button>
+    </header>
+
+    <div class="cam-stage">
+      <div class="viewfinder" id="viewfinder">
+        <video id="cam-video" playsinline muted autoplay></video>
+        <div class="vf-frame" id="vf-frame" aria-hidden="true">
+          <span class="vf-names" data-bind="coupleNames"></span>
+          <span class="vf-date" data-bind="eventDateShort"></span>
+        </div>
+        <div class="countdown" id="countdown" aria-live="assertive"></div>
+        <div class="flash" id="flash"></div>
+        <div class="cam-msg" id="cam-msg" hidden>
+          <div class="cam-msg-inner">
+            <div class="cam-msg-icon"><svg><use href="#i-camera"/></svg></div>
+            <h2 id="cam-msg-title">Allow camera access</h2>
+            <p id="cam-msg-body">We need your camera to capture photos for the album.</p>
+            <button class="btn btn-primary" id="btn-cam-retry">Enable camera</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="filters" id="filters" role="radiogroup" aria-label="Photo style"></div>
+
+    <footer class="cam-bottom">
+      <a href="#/gallery" class="last-shot" id="last-shot" aria-label="Open album">
+        <svg><use href="#i-grid"/></svg>
+        <span class="queue-badge" id="queue-badge" hidden></span>
+      </a>
+      <button class="shutter" id="btn-shutter" aria-label="Take photo" disabled><span></span></button>
+      <button class="icon-btn glass lg" id="btn-flip" aria-label="Switch camera" hidden><svg><use href="#i-flip"/></svg></button>
+      <span class="flip-spacer" id="flip-spacer"></span>
+    </footer>
+
+    <!-- Review sheet -->
+    <div class="review" id="review" hidden>
+      <div class="review-img-wrap"><img id="review-img" alt="Your captured photo"></div>
+      <div class="review-panel">
+        <input id="review-caption" class="input" maxlength="140" placeholder="Add a caption (optional)" autocomplete="off" enterkeyhint="send">
+        <div class="review-actions">
+          <button class="btn btn-ghost-dark" id="btn-retake">Retake</button>
+          <button class="btn btn-primary" id="btn-post"><svg><use href="#i-sparkle"/></svg> Add to album</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════ GALLERY ═════════════ -->
+  <main id="view-gallery" class="view view-gallery" data-view="gallery" hidden>
+    <header class="app-bar">
+      <a href="#/" class="icon-btn" aria-label="Home"><svg><use href="#i-back"/></svg></a>
+      <div class="app-bar-title">
+        <h1 data-bind="coupleNames"></h1>
+        <p><span class="live-dot" id="live-dot" aria-hidden="true"></span><span id="gallery-meta">Loading…</span></p>
+      </div>
+      <button class="icon-btn" id="btn-zip" aria-label="Download all photos"><svg><use href="#i-zip"/></svg></button>
+    </header>
+
+    <div class="new-pill" id="new-pill" hidden><button>New photos ↑</button></div>
+
+    <div class="grid" id="grid" aria-live="polite"></div>
+
+    <div class="gallery-empty" id="gallery-empty" hidden>
+      <div class="empty-art"><svg><use href="#i-camera"/></svg></div>
+      <h2>The album is waiting</h2>
+      <p>Be the first to capture a moment from tonight.</p>
+      <a href="#/camera" class="btn btn-primary">Take a photo</a>
+    </div>
+
+    <div class="skeleton-grid" id="skeleton" aria-hidden="true">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+
+    <footer class="gallery-foot">
+      <button class="btn-text" id="btn-host"><svg><use href="#i-lock"/></svg> <span id="host-label">Host tools</span></button>
+    </footer>
+
+    <a href="#/camera" class="fab" aria-label="Take a photo"><svg><use href="#i-camera"/></svg></a>
+  </main>
+
+  <!-- ═════════════ LIVE WALL ═════════════ -->
+  <section id="view-wall" class="view view-wall" data-view="wall" hidden>
+    <div class="wall-stage" id="wall-stage"></div>
+    <div class="wall-empty" id="wall-empty" hidden>
+      <p class="eyebrow" data-bind="eventTitle"></p>
+      <h1 data-bind="coupleNames"></h1>
+      <p>Scan the code to add the first photo</p>
+    </div>
+    <aside class="wall-side">
+      <div class="wall-brand">
+        <p class="eyebrow" data-bind="eventTitle"></p>
+        <h2 data-bind="coupleNames"></h2>
+      </div>
+      <div class="wall-qr-card">
+        <div id="wall-qr"></div>
+        <p>Scan to add<br>your photos</p>
+      </div>
+      <p class="wall-count"><span class="live-dot"></span> <span id="wall-count">0 photos</span></p>
+    </aside>
+    <div class="wall-controls">
+      <a href="#/" class="icon-btn glass" aria-label="Exit live wall"><svg><use href="#i-close"/></svg></a>
+      <button class="icon-btn glass" id="btn-fullscreen" aria-label="Full screen"><svg><use href="#i-expand"/></svg></button>
+    </div>
+  </section>
+
+  <!-- ═════════════ LIGHTBOX ═════════════ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <div class="lb-track" id="lb-track"></div>
+    <header class="lb-top">
+      <button class="icon-btn glass" id="lb-close" aria-label="Close"><svg><use href="#i-close"/></svg></button>
+      <span class="lb-index" id="lb-index"></span>
+      <span class="lb-spacer"></span>
+    </header>
+    <button class="lb-nav prev icon-btn glass" id="lb-prev" aria-label="Previous photo"><svg><use href="#i-back"/></svg></button>
+    <button class="lb-nav next icon-btn glass" id="lb-next" aria-label="Next photo"><svg><use href="#i-next"/></svg></button>
+    <footer class="lb-bottom">
+      <div class="lb-info">
+        <p class="lb-caption" id="lb-caption"></p>
+        <p class="lb-meta" id="lb-meta"></p>
+      </div>
+      <div class="lb-actions">
+        <button class="btn btn-glass" id="lb-download"><svg><use href="#i-download"/></svg> Save</button>
+        <button class="btn btn-glass" id="lb-share" hidden><svg><use href="#i-share"/></svg> Share</button>
+        <button class="btn btn-glass danger" id="lb-delete" hidden><svg><use href="#i-trash"/></svg></button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ═════════════ DIALOG ═════════════ -->
+  <dialog class="sheet" id="dialog">
+    <form method="dialog" class="sheet-body" id="dialog-form">
+      <h2 id="dialog-title"></h2>
+      <p id="dialog-text"></p>
+      <input class="input" id="dialog-input" autocomplete="off">
+      <div class="sheet-actions">
+        <button class="btn btn-ghost" value="cancel" id="dialog-cancel">Cancel</button>
+        <button class="btn btn-primary" value="ok" id="dialog-ok">OK</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <noscript><p class="noscript">Please enable JavaScript to use the live album.</p></noscript>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
