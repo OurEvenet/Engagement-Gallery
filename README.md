@@ -26,6 +26,7 @@ Guests scan a QR code and take photos with their phone camera (they can't upload
 ## 2. Before the party (checklist)
 
 - [ ] **Check the date.** It's set in `config.js` → `eventDate` (currently `2026-10-16`, Friday 16 October 2026) and is printed on every photo frame. To change it, see section 6.
+- [ ] **Set up by 8.30 am** on the day (the event starts at **9.00 am**): open the live wall on the TV laptop, check the venue Wi-Fi, and put the printed QR codes out where guests arrive.
 - [ ] **Test on two phones**, one iPhone (Safari) and one Android (Chrome):
   1. Open the album link and take a photo.
   2. Check it appears on the other phone without refreshing.
@@ -85,6 +86,7 @@ Everything lives in **`config.js`**. Edit it on GitHub: open the file → ✏️
 | `coupleNames` | Names on the home page, the photo frame and the wall (`"Gayathri & Ashen"`) |
 | `eventTitle` | Small heading above the names (`"Our Engagement"`) |
 | `eventDate` | Date shown on the home page and every photo frame, written as `YYYY-MM-DD` |
+| `eventTime` | Start time shown on the home page (`"9.00 am"`); leave `""` to hide it |
 | `welcomeMessage` | Text under the date on the home page |
 | `watermark` | `true` adds the names/date frame to each photo, `false` turns it off |
 | `wallInterval` | Seconds each photo stays on the live wall |
@@ -113,7 +115,7 @@ Everything lives in **`config.js`**. Edit it on GitHub: open the file → ✏️
 ## 8. Limits of the free plan
 
 - **Storage:** 1 GB, which is roughly **2,000 photos** (each is about 0.5 MB).
-- **Bandwidth:** 5 GB per month. That's plenty for one evening, but avoid downloading the full zip many times.
+- **Bandwidth:** 5 GB per month. That's plenty for one day, but avoid downloading the full zip many times.
 - **Pausing:** the project pauses after about 7 days without visitors (see section 5).
 
 To see usage, log in to Supabase → your project → **Usage**.

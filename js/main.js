@@ -9,7 +9,7 @@ import { petals } from "./fx.js";
 const binds = {
   coupleNames: CFG.coupleNames || "Our Engagement",
   eventTitle: CFG.eventTitle || "",
-  eventDateLong: dateLong(),
+  eventDateLong: [dateLong(), CFG.eventTime && `from ${CFG.eventTime}`].filter(Boolean).join(" · "),
   eventDateShort: dateShort(),
   welcomeMessage: CFG.welcomeMessage || "",
 };

@@ -10,7 +10,8 @@ window.APP_CONFIG = {
   coupleNames: "Gayathri & Ashen",
   eventTitle: "Our Engagement",
   eventDate: "2026-10-16",          // YYYY-MM-DD (shown on the home page and the photo frame)
-  welcomeMessage: "Capture the moments you see tonight — every photo appears instantly in our shared album.",
+  eventTime: "9.00 am",             // start time shown on the home page (leave "" to hide)
+  welcomeMessage: "Capture the moments you see today — every photo appears instantly in our shared album.",
 
   // Add the couple's names + date as an elegant frame along the bottom of every photo
   watermark: true,
