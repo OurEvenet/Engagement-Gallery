@@ -16,7 +16,7 @@ export function eventDate() {
   const d = new Date(CFG.eventDate + "T12:00:00");
   return isNaN(d) ? null : d;
 }
-export const dateLong = () => eventDate()?.toLocaleDateString(undefined, { weekday: "long", day: "numeric", month: "long", year: "numeric" }) || "";
+export const dateLong = () => eventDate()?.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" }) || "";
 export const dateShort = () => eventDate()?.toLocaleDateString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric" }).replace(/\//g, " · ") || "";
 
 export function timeAgo(iso) {

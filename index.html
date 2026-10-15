@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="images/couple.webp" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="css/styles.css">
   <script src="config.js"></script>
 </head>
@@ -55,10 +56,12 @@
   <main id="view-home" class="view view-home" data-view="home" hidden>
     <div class="petals" id="home-petals" aria-hidden="true"></div>
     <section class="hero">
-      <div class="hero-art"><img src="images/couple.png" alt="Illustration of the couple — you are invited" width="460" height="238" decoding="async"></div>
+      <div class="hero-art"><picture><source srcset="images/couple.webp" type="image/webp"><img src="images/couple.png" alt="Illustration of the couple — you are invited" width="460" height="238" fetchpriority="high"></picture></div>
       <p class="eyebrow" data-bind="eventTitle"></p>
       <h1 class="couple" data-bind="coupleNames"></h1>
       <p class="date" data-bind="eventDateLong"></p>
+      <div class="hero-divider" aria-hidden="true">&#9829;</div>
+      <p class="hero-headline">Capture our day!</p>
       <p class="welcome" data-bind="welcomeMessage"></p>
 
       <div class="hero-actions">
@@ -84,6 +87,7 @@
     <section class="invite card">
       <div class="invite-qr" id="home-qr" aria-label="QR code to open this album"></div>
       <div class="invite-text">
+        <p class="eyebrow">Share the album</p>
         <h2>Invite other guests</h2>
         <p>Have them scan this code with their phone camera to start adding photos.</p>
         <div class="invite-actions">
@@ -192,7 +196,7 @@
 
     <!-- Shown before the first photo: full-screen invitation hero -->
     <div class="wall-hero" id="wall-empty">
-      <img class="wall-hero-art" src="images/couple.png" alt="" width="460" height="238">
+      <img class="wall-hero-art" src="images/couple.webp" alt="" width="460" height="238">
       <p class="eyebrow" data-bind="eventTitle"></p>
       <h1 class="wall-names" data-bind="coupleNames"></h1>
       <p class="wall-date" data-bind="eventDateLong"></p>
@@ -208,7 +212,7 @@
     <!-- Shown alongside the slideshow -->
     <aside class="wall-side">
       <div class="wall-brand">
-        <img class="wall-art" src="images/couple.png" alt="" width="460" height="238">
+        <img class="wall-art" src="images/couple.webp" alt="" width="460" height="238">
         <p class="eyebrow" data-bind="eventTitle"></p>
         <h2 class="wall-names" data-bind="coupleNames"></h2>
         <p class="wall-date" data-bind="eventDateShortLabel"></p>
