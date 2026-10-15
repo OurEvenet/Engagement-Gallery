@@ -25,7 +25,7 @@ Guests scan a QR code and take photos with their phone camera (they can't upload
 
 ## 2. Before the party (checklist)
 
-- [ ] **Check the date.** It's set in `config.js` → `eventDate` (currently `2026-11-21`) and is printed on every photo frame. To change it, see section 6.
+- [ ] **Check the date.** It's set in `config.js` → `eventDate` (currently `2026-10-16`, Friday 16 October 2026) and is printed on every photo frame. To change it, see section 6.
 - [ ] **Test on two phones**, one iPhone (Safari) and one Android (Chrome):
   1. Open the album link and take a photo.
   2. Check it appears on the other phone without refreshing.

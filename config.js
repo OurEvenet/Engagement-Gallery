@@ -9,7 +9,7 @@ window.APP_CONFIG = {
   // Branding
   coupleNames: "Gayathri & Ashen",
   eventTitle: "Our Engagement",
-  eventDate: "2026-11-21",          // YYYY-MM-DD (shown on the home page and the photo frame)
+  eventDate: "2026-10-16",          // YYYY-MM-DD (shown on the home page and the photo frame)
   welcomeMessage: "Capture the moments you see tonight — every photo appears instantly in our shared album.",
 
   // Add the couple's names + date as an elegant frame along the bottom of every photo
