@@ -21,7 +21,7 @@ window.APP_CONFIG = {
   bucket: "photos",
 
   // URL guests should open (used for the QR code). Leave empty to use the current page URL.
-  publicUrl: "",
+  publicUrl: "https://ourevenet.github.io/Engagement-Gallery/",
 
   // Image quality
   maxImageEdge: 2048,                // longest side of the stored photo, in pixels
