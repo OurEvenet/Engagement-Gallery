@@ -1,6 +1,7 @@
 // Camera: live preview, capture via canvas (camera-only — no file inputs anywhere), filters, timer, frame.
 import { $, CFG, uuid, toast, ask, dateShort } from "./util.js";
 import { enqueue, on, outbox, state } from "./store.js";
+import { heartBurst } from "./fx.js";
 
 /* Filters are defined once as a list of ops; used both as a CSS filter (live preview)
    and as pixel maths (for browsers like iOS Safari without canvas ctx.filter). */
@@ -245,6 +246,8 @@ async function post() {
   try {
     await enqueue({ id, full, thumb, meta });
     setLastShot(URL.createObjectURL(thumb));
+    const r = $("#btn-post").getBoundingClientRect();
+    heartBurst(r.left + r.width / 2, r.top);
     toast(navigator.onLine ? "Added to the album" : "Saved — it will upload when you're back online", "ok");
     closeReview();
   } catch (e) {

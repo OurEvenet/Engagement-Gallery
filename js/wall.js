@@ -1,6 +1,7 @@
 // Live wall: big-screen slideshow. New photos jump the queue and are shown immediately.
 import { $, CFG, renderQR, appUrl, timeAgo } from "./util.js";
 import { state, on } from "./store.js";
+import { petals } from "./fx.js";
 
 let active = false, timer = null, cursorTimer = null, wakeLock = null;
 let pos = -1;               // index into state.sorted for the normal rotation
@@ -86,6 +87,7 @@ function wire() {
 export function enter() {
   wire();
   active = true;
+  petals($("#wall-petals"), 18);
   renderQR($("#wall-qr"), appUrl()).catch(() => {});
   $(".wall-count .live-dot").classList.toggle("on", state.live);
   pos = -1; showing = null; priority.length = 0;

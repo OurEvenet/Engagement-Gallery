@@ -3,6 +3,7 @@ import { init, state, on, isLive } from "./store.js";
 import * as camera from "./camera.js";
 import * as gallery from "./gallery.js";
 import * as wall from "./wall.js";
+import { petals } from "./fx.js";
 
 /* ── Bind config text ── */
 const binds = {
@@ -15,6 +16,15 @@ const binds = {
 for (const el of $$("[data-bind]")) {
   const k = el.dataset.bind;
   if (k in binds) { el.textContent = binds[k]; if (!binds[k]) el.hidden = true; }
+}
+// Big home-page names: set the "&" apart so it can be styled in gold
+for (const el of $$("h1.couple")) {
+  const parts = binds.coupleNames.split(/\s*&\s*/);
+  if (parts.length === 2) {
+    const amp = document.createElement("span");
+    amp.className = "amp"; amp.textContent = "&";
+    el.replaceChildren(parts[0] + " ", amp, " " + parts[1]);
+  }
 }
 document.title = `${CFG.coupleNames || "Engagement"} · Live Album`;
 $("#demo-banner").hidden = isLive;
@@ -39,6 +49,7 @@ addEventListener("hashchange", route);
 /* ── Home ── */
 let homeWired = false;
 function enterHome() {
+  petals($("#home-petals"));
   renderHome();
   if (homeWired) return; homeWired = true;
   renderQR($("#home-qr"), appUrl()).catch(() => ($("#home-qr").closest(".invite").hidden = true));

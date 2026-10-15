@@ -5,16 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f8f3ee" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#16120f" media="(prefers-color-scheme: dark)">
-  <meta name="description" content="Our live engagement photo album — capture a moment with your camera and it appears for everyone instantly.">
+  <meta name="description" content="Gayathri &amp; Ashen's live engagement photo album — capture a moment with your camera and it appears for everyone instantly.">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta property="og:title" content="Engagement Live Album">
+  <meta property="og:title" content="Gayathri &amp; Ashen · Engagement Live Album">
   <meta property="og:description" content="Snap a photo — it appears in our shared album instantly.">
-  <meta property="og:image" content="icons/icon-512.png">
-  <title>Engagement Live Album</title>
+  <meta property="og:image" content="https://ourevenet.github.io/Engagement-Gallery/icons/icon-512.png">
+  <meta property="og:type" content="website">
+  <title>Gayathri &amp; Ashen · Live Album</title>
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,8 +53,9 @@
 
   <!-- ═════════════ HOME ═════════════ -->
   <main id="view-home" class="view view-home" data-view="home" hidden>
+    <div class="petals" id="home-petals" aria-hidden="true"></div>
     <section class="hero">
-      <div class="hero-mark"><svg><use href="#i-ring"/></svg></div>
+      <div class="hero-art"><img src="images/couple.png" alt="Illustration of the couple — you are invited" width="460" height="238" decoding="async"></div>
       <p class="eyebrow" data-bind="eventTitle"></p>
       <h1 class="couple" data-bind="coupleNames"></h1>
       <p class="date" data-bind="eventDateLong"></p>
@@ -186,13 +188,16 @@
   <!-- ═════════════ LIVE WALL ═════════════ -->
   <section id="view-wall" class="view view-wall" data-view="wall" hidden>
     <div class="wall-stage" id="wall-stage"></div>
+    <div class="petals" id="wall-petals" aria-hidden="true"></div>
     <div class="wall-empty" id="wall-empty" hidden>
+      <img class="wall-empty-art" src="images/couple.png" alt="" width="460" height="238">
       <p class="eyebrow" data-bind="eventTitle"></p>
       <h1 data-bind="coupleNames"></h1>
       <p>Scan the code to add the first photo</p>
     </div>
     <aside class="wall-side">
       <div class="wall-brand">
+        <img class="wall-art" src="images/couple.png" alt="" width="460" height="238">
         <p class="eyebrow" data-bind="eventTitle"></p>
         <h2 data-bind="coupleNames"></h2>
       </div>
@@ -245,6 +250,7 @@
   </dialog>
 
   <div class="toasts" id="toasts" aria-live="polite"></div>
+  <div class="fx-layer" id="fx-layer" aria-hidden="true"></div>
 
   <noscript><p class="noscript">Please enable JavaScript to use the live album.</p></noscript>
 
