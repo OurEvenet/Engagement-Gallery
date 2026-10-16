@@ -171,8 +171,8 @@ async function capture() {
   }
 }
 
-const toJpeg = (canvas, q) => new Promise((res, rej) => canvas.toBlob((b) => (b ? res(b) : rej(new Error("toBlob failed"))), "image/jpeg", q));
-function makeThumb(src, edge) {
+export const toJpeg = (canvas, q) => new Promise((res, rej) => canvas.toBlob((b) => (b ? res(b) : rej(new Error("toBlob failed"))), "image/jpeg", q));
+export function makeThumb(src, edge) {
   const s = Math.min(1, edge / Math.min(src.width, src.height));
   const c = document.createElement("canvas");
   c.width = Math.round(src.width * s); c.height = Math.round(src.height * s);
@@ -182,7 +182,7 @@ function makeThumb(src, edge) {
   return toJpeg(c, 0.8);
 }
 
-async function drawFrame(ctx, W, H) {
+export async function drawFrame(ctx, W, H) {
   const names = CFG.coupleNames || "";
   const date = dateShort();
   try { await document.fonts?.load(`600 40px "Cormorant Garamond"`); } catch {}
@@ -271,7 +271,7 @@ function renderName() {
   const n = localStorage.getItem("eg-name");
   $("#name-label").textContent = n || "Add your name";
 }
-async function editName(first = false) {
+export async function editName(first = false) {
   const v = await ask({
     title: first ? "Who's taking photos?" : "Your name",
     text: "Your name appears with the photos you share. You can skip this.",

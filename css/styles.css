@@ -584,3 +584,13 @@ body.route-camera .demo-banner, body.route-wall .demo-banner { display: none; }
   .petals, .fx-layer { display: none; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* ── Upload from phone ── */
+.upload-link { justify-content: center; margin-top: 2px; color: var(--accent); font-weight: 600; font-size: 14px; }
+.upload-link svg { width: 18px; height: 18px; }
+.cam-top-right { display: flex; gap: 8px; }
+.app-bar-actions { display: flex; align-items: center; }
+.gallery-empty .btn + .btn { margin-top: 10px; }
+
+.gallery-empty .btn { display: flex; width: fit-content; margin-inline: auto; }
+.chip { max-width: 46vw; }

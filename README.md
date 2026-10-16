@@ -5,7 +5,7 @@
 🔗 **Album link:** https://ourevenet.github.io/Engagement-Gallery/
 📺 **Live wall (for the TV/projector):** https://ourevenet.github.io/Engagement-Gallery/#/wall
 
-Guests scan a QR code and take photos with their phone camera (they can't upload old photos from their gallery). Every photo shows up straight away for everyone, on phones and on the big screen.
+Guests scan a QR code and either take photos with the album's camera or upload photos already on their phone. Every photo shows up straight away for everyone, on phones and on the big screen.
 
 ---
 
@@ -16,7 +16,8 @@ Guests scan a QR code and take photos with their phone camera (they can't upload
 3. Optionally type their name, which is shown with their photos.
 4. Pick a style (Original, Glow, Warm, Rosé, Film, B&W). Use the ⏱ timer for group shots (3s or 10s) and 🔄 to switch to the selfie camera.
 5. Tap the round shutter button, add a caption if they like, then **Add to album**. Hearts fly up and the photo is in the album. 💕
-6. **View the album** shows everyone's photos. Tap one to see it full-screen and swipe left or right. **Save** downloads it and **Share** sends it to WhatsApp and similar apps.
+6. **Already took photos with the phone's own camera?** Tap **Upload photos from your phone** (on the home page, or the 🖼 button in the camera and the album). They can pick up to 20 photos at a time. Each one is resized, framed and added to the album.
+7. **View the album** shows everyone's photos. Tap one to see it full-screen and swipe left or right. **Save** downloads it and **Share** sends it to WhatsApp and similar apps.
 
 > Every photo gets an elegant "Gayathri & Ashen · date" frame along the bottom.
 > If the Wi-Fi drops, photos are kept on the guest's phone and upload by themselves when the connection comes back.
@@ -105,6 +106,7 @@ Everything lives in **`config.js`**. Edit it on GitHub: open the file → ✏️
 | **"Camera access is off"** | The guest tapped "Don't allow". **iPhone:** tap **aA** in the address bar → Website Settings → Camera → Allow. **Android Chrome:** tap 🔒 next to the address → Permissions → Camera → Allow. Then tap **Try again**. |
 | **Camera won't open inside Instagram/Facebook/WhatsApp** | Those in-app browsers often block the camera. Tap ⋯ → **Open in Safari / Open in Chrome**. |
 | **"Camera is busy"** | Another app (a video call, the camera app) is using it. Close that app and try again. |
+| **"Couldn't be added (unsupported format)"** | Only photos can be uploaded, not videos. On iPhone, if a photo still won't add, open it in the Photos app and use **Share → Save Image**, or set Settings → Camera → Formats → **Most Compatible**. |
 | **Photo stuck "uploading"** | The phone is offline. The photo is saved on the phone and uploads automatically when it reconnects; the guest can keep taking photos. The small number on the album button shows how many are waiting. |
 | **Live wall stopped updating** | Refresh the page (F5) and go full screen again. Make sure the laptop's Wi-Fi is on. |
 | **"Incorrect PIN"** | Check the PIN. To reset it, see section 4. |
@@ -148,6 +150,7 @@ To see usage, log in to Supabase → your project → **Usage**.
   js/gallery.js         grid, viewer, downloads, host tools
   js/wall.js            big-screen slideshow
   js/fx.js              petals + heart-burst animations
+  js/upload.js          upload from the phone's gallery (resize, frame, queue)
   js/util.js            helpers (IndexedDB, dialogs, toasts, QR)
   images/couple.png     couple illustration
   supabase/setup.sql    database, storage bucket, security rules, host PIN

@@ -45,6 +45,7 @@
     <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3"/></g></symbol>
     <symbol id="i-zip" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6 3.5h8.5L19 8v12.5H6z"/><path d="M14 3.5V8h5"/></g><g fill="currentColor"><rect x="9" y="6" width="2" height="1.6"/><rect x="11" y="8" width="2" height="1.6"/><rect x="9" y="10" width="2" height="1.6"/><rect x="11" y="12" width="2" height="1.6"/><rect x="9" y="14.5" width="4" height="3.5" rx=".8"/></g></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><path d="M3.5 16l4.5-4.5 3.5 3.5 2.5-2.5 6.5 6.5"/><circle cx="15.5" cy="9" r="1.6"/></g></symbol>
     <symbol id="i-ring" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="24" cy="29" r="12"/><path d="M18.5 11.5L24 6l5.5 5.5L24 17z" stroke-linejoin="round"/></g></symbol>
   </svg>
 
@@ -72,6 +73,7 @@
           <svg><use href="#i-grid"/></svg> View the album
           <span class="count-pill" data-bind="photoCount" hidden></span>
         </a>
+        <button class="btn-text upload-link" data-upload><svg><use href="#i-upload"/></svg> Upload photos from your phone</button>
       </div>
     </section>
 
@@ -108,7 +110,10 @@
     <header class="cam-top">
       <a href="#/" class="icon-btn glass" aria-label="Close camera"><svg><use href="#i-close"/></svg></a>
       <button class="chip glass" id="btn-name"><svg><use href="#i-user"/></svg><span id="name-label">Add your name</span></button>
-      <button class="icon-btn glass" id="btn-timer" aria-label="Self-timer: off"><svg><use href="#i-timer"/></svg><span class="badge" id="timer-badge" hidden></span></button>
+      <div class="cam-top-right">
+        <button class="icon-btn glass" data-upload aria-label="Upload photos from your phone"><svg><use href="#i-upload"/></svg></button>
+        <button class="icon-btn glass" id="btn-timer" aria-label="Self-timer: off"><svg><use href="#i-timer"/></svg><span class="badge" id="timer-badge" hidden></span></button>
+      </div>
     </header>
 
     <div class="cam-stage">
@@ -164,7 +169,10 @@
         <h1 data-bind="coupleNames"></h1>
         <p><span class="live-dot" id="live-dot" aria-hidden="true"></span><span id="gallery-meta">Loading…</span></p>
       </div>
-      <button class="icon-btn" id="btn-zip" aria-label="Download all photos"><svg><use href="#i-zip"/></svg></button>
+      <div class="app-bar-actions">
+        <button class="icon-btn" data-upload aria-label="Upload photos from your phone"><svg><use href="#i-upload"/></svg></button>
+        <button class="icon-btn" id="btn-zip" aria-label="Download all photos"><svg><use href="#i-zip"/></svg></button>
+      </div>
     </header>
 
     <div class="new-pill" id="new-pill" hidden><button>New photos ↑</button></div>
@@ -176,6 +184,7 @@
       <h2>The album is waiting</h2>
       <p>Be the first to capture a moment from today.</p>
       <a href="#/camera" class="btn btn-primary">Take a photo</a>
+      <button class="btn btn-ghost" data-upload><svg><use href="#i-upload"/></svg> Upload from your phone</button>
     </div>
 
     <div class="skeleton-grid" id="skeleton" aria-hidden="true">

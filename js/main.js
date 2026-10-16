@@ -4,6 +4,7 @@ import * as camera from "./camera.js";
 import * as gallery from "./gallery.js";
 import * as wall from "./wall.js";
 import { petals } from "./fx.js";
+import { pickPhotos } from "./upload.js";
 
 /* ── Bind config text ── */
 const binds = {
@@ -86,6 +87,9 @@ function renderHome() {
   $(".latest h2 .live-dot").classList.toggle("on", state.live);
 }
 on((type) => { if (type !== "outbox") renderHome(); });
+
+/* ── Upload from the phone's gallery (any button with data-upload) ── */
+document.addEventListener("click", (e) => { if (e.target.closest("[data-upload]")) pickPhotos(); });
 
 /* ── Global upload feedback ── */
 let lastErr = 0;
